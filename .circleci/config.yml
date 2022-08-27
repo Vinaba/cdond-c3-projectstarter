@@ -149,11 +149,12 @@ jobs:
       - add_ssh_keys:
           fingerprints: ["8d:48:75:76:ef:63:b7:62:fb:e4:48:fc:72:d6:22:ff"]
       - attach_workspace:
-          at: ~/project/.circleci/ansible/
+          at: ~/project/.circleci/ansible/inventory.txt
       - run:
           name: Install dependencies
           command: |
             apk add --update ansible
+            cat ~/project/.circleci/ansible/inventory.txt
       - run:
           name: Configure server
           command: |
