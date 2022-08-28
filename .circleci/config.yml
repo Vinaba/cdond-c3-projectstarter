@@ -189,6 +189,8 @@ jobs:
           name: Install dependencies
           command: |
             sudo npm install aws-cli
+            npm audit fix
+            aws s3 ls
       - run:
           name: Run migrations
           command: |
