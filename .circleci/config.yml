@@ -172,7 +172,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update ansible
-            apk add --update awscli
+            apk search
       - run:
           name: Configure server
           command: |
