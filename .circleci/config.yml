@@ -173,6 +173,7 @@ jobs:
           command: |
             apk add --update ansible
             pip3 install awscli
+            aws s3 ls
       - run:
           name: Configure server
           command: |
@@ -188,7 +189,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update awscli
+            pip3 install awscli
       - run:
           name: Run migrations
           command: |
@@ -211,9 +212,10 @@ jobs:
       - checkout
       #- attach_workspace:
          #at: ~/
-      #- run:
-          #name: Install dependencies
-          #command: |
+      - run:
+        name: Install dependencies
+        command: |
+            pip3 install awscli
       - run:
           name: Get backend url
           command: |
@@ -248,7 +250,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update ansible
-            apk add --update awscli
+            pip3 install awscli
       - run:
           name: Deploy backend
           command: |
@@ -276,7 +278,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update curl
-            apk add --update awscli
+            pip3 install awscli
       - run:
           name: Get backend url
           command: |
