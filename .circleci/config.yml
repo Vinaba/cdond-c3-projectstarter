@@ -239,9 +239,9 @@ jobs:
           fingerprints: ["8d:48:75:76:ef:63:b7:62:fb:e4:48:fc:72:d6:22:ff"]
       - attach_workspace:
           at: ~/
-       - run:
-          name: Install dependencies
-          command: |
+      - run:
+        name: Install dependencies
+        command: |
             apk add --update ansible
       - run:
           name: Deploy backend
@@ -301,7 +301,7 @@ jobs:
             else
               return 1
             fi
-       - destroy-environment 
+      - destroy-environment 
 
 workflows:
   default:
