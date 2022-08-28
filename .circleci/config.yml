@@ -213,9 +213,9 @@ jobs:
       #- attach_workspace:
          #at: ~/
       - run:
-        name: Install dependencies
-        command: |
-            pip3 install awscli
+          name: Install dependencies
+          command: |
+              pip3 install awscli
       - run:
           name: Get backend url
           command: |
@@ -250,6 +250,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update ansible
+            apk add --update curl
             pip3 install awscli
       - run:
           name: Deploy backend
