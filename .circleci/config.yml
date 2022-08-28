@@ -186,12 +186,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          command: |
-            sudo npm install aws-cli
-            npm audit fix
-            aws s3 ls
-      - run:
           name: Run migrations
           command: |
             cd backend
@@ -204,7 +198,7 @@ jobs:
             then
               curl https://kvdb.io/VyR2oC6F8ePU8DgMhUthmQ/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
             fi
-      - destroy-environment    
+      #- destroy-environment    
 
   deploy-frontend:
     docker:
