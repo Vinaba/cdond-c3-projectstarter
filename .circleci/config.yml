@@ -172,6 +172,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update ansible
+            apk add --update awscliv2
       - run:
           name: Configure server
           command: |
@@ -184,6 +185,10 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            apk add --update awscliv2
       - run:
           name: Run migrations
           command: |
@@ -243,6 +248,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update ansible
+            apk add --update awscliv2
       - run:
           name: Deploy backend
           command: |
@@ -270,7 +276,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update curl
-            apk add --update aws-cli
+            apk add --update awscliv2
       - run:
           name: Get backend url
           command: |
