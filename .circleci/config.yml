@@ -188,7 +188,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            npm install -g aws-cli
+            sudo npm install aws-cli
       - run:
           name: Run migrations
           command: |
