@@ -172,7 +172,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update ansible
-            apk add --update aws-cli
+            apk add --update awscli
       - run:
           name: Configure server
           command: |
@@ -188,7 +188,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update aws-cli
+            apk add --update awscli
       - run:
           name: Run migrations
           command: |
@@ -248,7 +248,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update ansible
-            apk add --update aws-cli
+            apk add --update awscli
       - run:
           name: Deploy backend
           command: |
@@ -276,7 +276,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update curl
-            apk add --update aws-cli
+            apk add --update awscli
       - run:
           name: Get backend url
           command: |
