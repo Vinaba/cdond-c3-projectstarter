@@ -214,7 +214,13 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            yum -y install tar gzip nodejs
+            yum -y install tar gzip 
+      - run:
+          name: Install Node
+          command: |
+            yum update
+            yum install epel-release
+            yum install nodejs
       - run:
           name: Get backend url
           command: |
@@ -252,8 +258,11 @@ jobs:
             apk add --update curl
             apk add --update tar
             apk add --update gzip
-            apk add --update nodejs
             pip3 install awscli
+      - run:
+          name: Install Node
+          command: |
+            apk add  --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.10/main/ nodejs
       - run:
           name: Deploy backend
           command: |
