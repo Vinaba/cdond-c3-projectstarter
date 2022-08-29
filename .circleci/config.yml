@@ -24,8 +24,8 @@ commands:
           name: Revert migrations
           when: on_fail
           command: |
-            SUCCESS = $(curl --insecure https://kvdb.io/VyR2oC6F8ePU8DgMhUthmQ/migration_${CIRCLE_WORKFLOW_ID:0:7})
-            #SUCCESS = 1
+            SUCCESS=$(curl --insecure https://kvdb.io/VyR2oC6F8ePU8DgMhUthmQ/migration_${CIRCLE_WORKFLOW_ID:0:7})
+            #SUCCESS=1
             if(( $SUCCESS==1 )); 
             then
               cd ~/project/backend
@@ -213,7 +213,8 @@ jobs:
          #at: ~/
       - run:
           name: Install dependencies
-          command: yum -y install tar gzip
+          command: |
+            yum -y install tar gzip nodejs
       - run:
           name: Get backend url
           command: |
@@ -247,10 +248,11 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update ansible
+            apk add --update ansible 
             apk add --update curl
             apk add --update tar
             apk add --update gzip
+            apk add --update nodejs
             pip3 install awscli
       - run:
           name: Deploy backend
