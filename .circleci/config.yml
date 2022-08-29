@@ -316,7 +316,9 @@ jobs:
       - run:
           name: Backend smoke test.
           command: |
-            if curl "${API_URL}/api/status" | grep "ok"
+            URL=${API_URL}/api/status
+            echo ${URL} 
+            if curl -s ${URL} | grep "ok"
             then
                 return 0
             else
