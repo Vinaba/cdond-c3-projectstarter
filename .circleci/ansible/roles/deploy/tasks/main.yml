@@ -1,7 +1,7 @@
 ---
 - name: PM2 Stop
   shell: |
-    pm2 stop default
+    pm2 stop
 
 - name: PM2 Start
   shell: |
