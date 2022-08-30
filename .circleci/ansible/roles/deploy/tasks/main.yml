@@ -23,9 +23,9 @@
     state: latest
     update_cache: yes
 
-#- name: PM2 Stop
-#  shell: |
-#    pm2 stop all
+- name: PM2 Stop
+  shell: |
+    pm2 stop default
 
 - name: PM2 Start
   shell: |
