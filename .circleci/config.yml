@@ -28,7 +28,7 @@ commands:
           name: Revert migrations
           when: on_fail
           command: |
-            SUCCESS=$(curl --insecure https://kvdb.io/VyR2oC6F8ePU8DgMhUthmQ/migration_<< parameters.workflow_id >>)
+            SUCCESS=`curl --insecure https://kvdb.io/VyR2oC6F8ePU8DgMhUthmQ/migration_<< parameters.workflow_id >>`
             # SUCCESS=1
             if (( $SUCCESS == 1 ));
             then
@@ -201,7 +201,7 @@ jobs:
             npm install aws-cli
             npm run build
             npm run migrations > migrations_dump.txt
-            npm audit fix --force --audit-level=critical
+            #npm audit fix --force --audit-level=critical
             echo cat migrations_dump.txt
             cat migrations_dump.txt 
       - run:
