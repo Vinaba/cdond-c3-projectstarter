@@ -34,7 +34,7 @@ commands:
               cd ~/project/backend
               apk add --update npm
               npm install
-              npm run migration:revert
+              npm run migrations:revert
             fi
 
 jobs:
